@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Teste :D</title>
+	
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+	  #canvas {
+		border: 1px solid #9C9898;
+	  }
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+	
+	<script src="js/ObjetoGrafico.js"></script>
+	<script src="js/Vertice.js"></script>
+	<script src="js/teste.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">GrafZ 1.0</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+				<li><a href="teste.html"><i class="icon-home"></i> Home</a></li>
+				<li class="active"><a href="teste2.html"><i class="icon-pencil"></i> Program</a></li>
+				<li><a href="about.html"><i class="icon-book"></i> About</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+	<div class="container">
+		<h1>GrafZ</h1>
+	
+		<div class="row-fluid show-grid">
+			<div class="span12">
+				<p>
+				<button type="button" id="btn_seta" onclick="botaoPressionado(1)" class="btn">Seta</button>
+				<button type="button" id="btn_vertice" onclick="botaoPressionado(2)" class="btn">Vertice</button>
+				<button type="button" id="btn_arco" onclick="botaoPressionado(3)" class="btn">Arco</button>
+				<button type="button" id="btn_aresta" onclick="botaoPressionado(4)" class="btn">Aresta</button>
+				<button type="button" id="btn_excluir" onclick="botaoPressionado(5)" class="btn">Excluir</button>
+				</p>
+							
+				<canvas id="canvas" width="870" height="600">
+					tenso
+				</canvas>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
