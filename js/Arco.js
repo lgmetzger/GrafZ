@@ -1,10 +1,10 @@
-// Classe para as arestas
+// Classe para os arcos
 // Herda da classe objeto_grafico
 
-Aresta.prototype = new ObjetoGrafico();
-Aresta.prototype.constructor = Aresta;
+Arco.prototype = new ObjetoGrafico();
+Arco.prototype.constructor = Arco;
 
-function Aresta(_verticeInicial){
+function Arco(_verticeInicial){
 	this.verticeInicial = _verticeInicial;
 	
 	this.verticeFinal = function verticeFinal(_verticeFinal) {
@@ -13,7 +13,7 @@ function Aresta(_verticeInicial){
 	
 	this.draw = function draw(_canvas){
 		_canvas.beginPath();
-		_canvas.strokeStyle = "blue";
+		_canvas.strokeStyle = "red";
 		
 		// linha
 		_canvas.moveTo(this.verticeInicial.posX-200, this.verticeInicial.posY-130);

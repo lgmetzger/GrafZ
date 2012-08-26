@@ -4,9 +4,10 @@
 Vertice.prototype = new ObjetoGrafico();
 Vertice.prototype.constructor = Vertice;
 
-function Vertice(_x, _y){
+function Vertice(_x, _y, _i){
 	this.posX = _x;
 	this.posY = _y;
+	this.indice = _i;
 	
 	this.draw = function draw(_canvas, _i){
 
