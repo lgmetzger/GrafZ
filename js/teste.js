@@ -269,8 +269,12 @@ function desativaBotoes(){
 	document.getElementById("btn_limpar").setAttribute("class", "btn");
 }
 
-function gerarMatriz(){
+function gerarMatriz(mostrar){
 	var qtd = vertices.length;
+	
+	if (qtd <= 0) {
+		return;
+	}
 	
 	// por enquanto, a matriz eh global
 	matrizAdj = new Array(qtd);
@@ -285,22 +289,52 @@ function gerarMatriz(){
 		}
 	}
 	
-	if (arcos.length > 0) {
-		for (var i = 0; i < arcos.length; i++) {
-			if (arcos[i].verticeInicial) {
-				matrizAdj[arcos[i].verticeInicial.indice][arcos[i].verticeFinal.indice] = 1;
-			}
+	for (var i = 0; i < arcos.length; i++) {
+		if (arcos[i].verticeInicial) {
+			matrizAdj[arcos[i].verticeInicial.indice][arcos[i].verticeFinal.indice] = 1;
 		}
-	} else if (arestas.length > 0) {
-		for (var i = 0; i < arestas.length; i++) {
-			if (arestas[i].verticeInicial) {
-				matrizAdj[arestas[i].verticeInicial.indice][arestas[i].verticeFinal.indice] = 1;
-				matrizAdj[arestas[i].verticeFinal.indice][arestas[i].verticeInicial.indice] = 1;
-			}
+	}
+
+	for (var i = 0; i < arestas.length; i++) {
+		if (arestas[i].verticeInicial) {
+			matrizAdj[arestas[i].verticeInicial.indice][arestas[i].verticeFinal.indice] = 1;
+			matrizAdj[arestas[i].verticeFinal.indice][arestas[i].verticeInicial.indice] = 1;
 		}
 	}
 	
-	alert(matrizAdj);
+	if (mostrar) {
+		alert(matrizAdj);
+	}
+}
+
+function grafo_percorreDfs(){
+	if (vertices.length <= 0) {
+		return;
+	}
+
+	// talvez a matriz nao precise mais ser global, basta a funcao retorna-la
+	gerarMatriz(false);
+	
+	var inicial = parseInt(window.prompt("Digite o vertice inicial", ""));
+	
+	if (!isNaN(inicial)) {
+		percorreDfs(inicial-1, matrizAdj);
+	}
+}
+
+function grafo_percorreBfs(){
+	if (vertices.length <= 0) {
+		return;
+	}
+
+	// talvez a matriz nao precise mais ser global, basta a funcao retorna-la
+	gerarMatriz(false);
+	
+	var inicial = parseInt(window.prompt("Digite o vertice inicial", ""));
+	
+	if (!isNaN(inicial)) {
+		percorreBfs(inicial-1, matrizAdj);
+	}
 }
 
 window.addEventListener("load", primeiro, false);

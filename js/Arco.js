@@ -21,6 +21,17 @@ function Arco(_verticeInicial){
 		
 		
 		// seta
+		
+		var headlen = 10;
+		var angle = Math.atan2(toy-this.verticeInicial.posY-130, tox-this.verticeInicial.posX-200);
+		var tox = this.verticeFinal.posX-200;
+		var toy = this.verticeFinal.posY-130;
+		
+		_canvas.moveTo(tox, toy);
+		_canvas.lineTo(tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6));
+		_canvas.moveTo(tox, toy);
+		_canvas.lineTo(tox-headlen*Math.cos(angle+Math.PI/6),toy-headlen*Math.sin(angle+Math.PI/6));
+		
 		/*
 		_canvas.moveTo(this.verticeFinal.posX-260, this.verticeFinal.posY-130);
 		_canvas.lineTo(this.verticeFinal.posX-210, this.verticeFinal.posY-140);
